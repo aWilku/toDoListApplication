@@ -1,0 +1,7 @@
+.taskList__element{
+    color:black;
+}
+.taskList__element--done{
+    text-decoration: line-through;
+    color:rgb(146, 146, 146);
+}
