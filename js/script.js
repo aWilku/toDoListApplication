@@ -10,25 +10,29 @@
         },
     ];
 
-    const onFormSubmit =(event) => {
-        event.preventDefault();
-
-        const newTask = document.querySelector(".js-newTask").value.trim();
-        if(newTask === ""){
-            return;
-        }
+    const addTaskToTasks = (newTask) => {
         tasks.push(
             {
                 content: newTask,
                 done: false,
-            }
+            },
         );
         render();
+    }
+    const onFormSubmit = (event) => {
+        event.preventDefault();
+
+        const newTask = document.querySelector(".js-newTask").value.trim();
+        if (newTask === "") {
+            return;
+        }
+        addTaskToTasks(newTask);
+
     }
 
     const render = () => {
         let htmlString = "";
-        for(const task of tasks){
+        for (const task of tasks) {
             htmlString += `
             <li class="taskList__element${task.done ? " taskList__element--done" : ""}" >
             ${task.content}
