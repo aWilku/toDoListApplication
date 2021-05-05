@@ -71,6 +71,7 @@
 
     const cleanTaskInput = (newTask) => {
         newTask.value = "";
+        newTask.focus();
     }
 
     const onFormSubmit = (event) => {
@@ -84,7 +85,6 @@
         }
         cleanTaskInput(newTask);
         addTaskToTasks(newTaskContent);
-        newTask.focus();
     };
 
     const init = () => {
