@@ -63,17 +63,23 @@
         addEvents();
     }
 
+    const cleanTaskInput = (newTask) => {
+        newTask.value = "";
+    }
+
     const onFormSubmit = (event) => {
         event.preventDefault();
 
-        const newTask = document.querySelector(".js-newTask").value.trim();
-        if (newTask === "") {
+        const newTask = document.querySelector(".js-newTask");
+        const newTaskContent = newTask.value.trim();
+        if (!newTaskContent) {
+            cleanTaskInput(newTask);
             return;
         }
-        addTaskToTasks(newTask);
+        cleanTaskInput(newTask);
+        addTaskToTasks(newTaskContent);
+        newTask.focus();
     };
-
-
 
     const init = () => {
         const form = document.querySelector(".js-form");
