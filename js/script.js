@@ -10,6 +10,10 @@
         },
     ];
 
+    const taskCompare = (task1, task2) => {
+        return task1.done - task2.done;
+    }
+
     const addTaskToTasks = (newTask) => {
         tasks.push(
             {
@@ -47,9 +51,11 @@
             });
         });
     }
+
     const render = () => {
+        const sortedTasks = tasks.sort(taskCompare);
         let htmlString = "";
-        for (const task of tasks) {
+        for (const task of sortedTasks) {
             htmlString += `
             <li class="taskList__element${task.done ? " taskList__element--done" : ""}" >
             <button class="js-doneTask">Wykonane?</button>
