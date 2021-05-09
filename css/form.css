@@ -1,5 +1,12 @@
 .form {
     display: flex;
+    padding: 10px;
+}
+
+@media(max-width: 500px) {
+    .form {
+        flex-direction: column;
+    }
 }
 
 .form__input {
@@ -9,18 +16,25 @@
     border: 1px solid #dddddd;
 }
 
+@media(max-width: 500px) {
+    .form__input {
+        margin: 10px 10px 0;
+    }
+}
+
 .form__button {
-    flex-shrink: 0;
     padding: 10px;
     margin: 10px;
     border: none;
     background-color: hsl(180, 100%, 25%);
     color: white;
 }
+
 .form__button:hover {
     background-color: hsl(180, 100%, 30%);
     cursor: pointer;
 }
+
 .form__button:active {
     background-color: hsl(180, 100%, 35%);
 }
