@@ -1,7 +1,39 @@
-.taskList__element{
-    color:black;
+.taskList {
+    list-style: none;
+    padding: 25px 10px;
+    margin: 0 auto;
 }
-.taskList__element--done{
-    text-decoration: line-through;
-    color:rgb(146, 146, 146);
+
+.taskList__element {
+    padding: 10px;
+    border-bottom: 1px solid #dddddd;
+    display: grid;
+    grid-template-columns: 30px 1fr 30px;
+    align-items: center;
+    grid-gap: 20px;
+}
+
+.taskList__text {
+    word-break: break-all;
+}
+
+.taskList__text--done {
+    text-decoration: line-through rgb(0, 0, 0);
+    color: #999999;
+}
+
+.taskList__button {
+    color: white;
+    background-color: green;
+    border: none;
+    width: 30px;
+    height: 30px;
+}
+
+.taskList__button:active {
+    border: 2px solid black;
+}
+
+.taskList__button--remove {
+    background-color: crimson;
 }
