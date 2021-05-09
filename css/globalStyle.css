@@ -7,8 +7,9 @@ html {
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     background-color: rgb(228, 228, 228);
     max-width: 1000px;
     margin: 0 auto;
+    padding:10px;
 }
