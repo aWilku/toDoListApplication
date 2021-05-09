@@ -10,10 +10,6 @@
         },
     ];
 
-    const taskCompare = (task1, task2) => {
-        return task1.done - task2.done;
-    }
-
     const addTaskToTasks = (newTask) => {
         tasks.push(
             {
@@ -30,6 +26,7 @@
     }
 
     const toggleTaskDone = (index) => {
+
         tasks[index].done = !tasks[index].done;
         render();
     }
@@ -53,14 +50,13 @@
     }
 
     const render = () => {
-        const sortedTasks = tasks.sort(taskCompare);
         let htmlString = "";
-        for (const task of sortedTasks) {
+        for (const task of tasks) {
             htmlString += `
-            <li class="taskList__element${task.done ? " taskList__element--done" : ""}" >
-            <button class="js-doneTask">Wykonane?</button>
-            ${task.content}
-            <button class="js-removeTask">Usuń</button>
+            <li class="taskList__element">
+            <button class="taskList__button js-doneTask">${task.done ? "&check;" : ""}</button>
+            <span class="taskList__text${task.done ? " taskList__text--done" : ""}" >${task.content}</span>
+            <button class="taskList__button taskList__button--remove js-removeTask">🗑</button>
             </li>
             `;
         }
