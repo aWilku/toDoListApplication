@@ -8,7 +8,7 @@ As a participant in the [YouCode](https://youcode.pl/frontend-developer/) course
 
 Write your task in field and click "Dodaj zadanie. Now your task is on the task list. You can mark them as done or delete them.
 
-![toDoList.gif](https://i.postimg.cc/ZqhhFzpF/toDoList.gif)
+![toDoList.gif](https://i.postimg.cc/j2Y8BRqZ/toDoList.gif)
 ## :gear:Technologies used
 - HTML
 - CSS (grid/flex/media queries)
