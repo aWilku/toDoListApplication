@@ -10,7 +10,7 @@
     display: grid;
     grid-template-columns: 30px 1fr 30px;
     align-items: center;
-    grid-gap: 20px;
+    grid-gap: 15px;
 }
 
 .taskList__text {
@@ -19,21 +19,37 @@
 
 .taskList__text--done {
     text-decoration: line-through rgb(0, 0, 0);
-    color: #999999;
 }
 
 .taskList__button {
     color: white;
-    background-color: green;
     border: none;
     width: 30px;
     height: 30px;
 }
+.taskList__button--done {
+    background-color: #008000;
+}
+.taskList__button--done:hover {
+    background-color: #009900;
+    cursor: pointer;
+}
 
-.taskList__button:active {
-    border: 2px solid black;
+.taskList__button--done:active {
+    border: 2px solid #000000;
+    background-color: #00b300;
 }
 
 .taskList__button--remove {
-    background-color: crimson;
+    background-color: #dc143c;
+}
+
+.taskList__button--remove:hover {
+    background-color: #ea1f48;
+    cursor: pointer;
+}
+
+.taskList__button--remove:active {
+    border: 2px solid #000000;
+    background-color: #ec365b;
 }
