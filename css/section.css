@@ -3,8 +3,20 @@
     margin: 0 auto 10px;
 }
 
+.section__header {
+    display: grid;
+    grid-template-columns: 2fr auto auto;
+}
+
+@media(max-width: 767px) {
+    .section__header {
+        grid-template-columns: 1fr;
+    }
+}
+
 .section__title {
     padding: 20px;
     margin: 0;
-    border-bottom: 1px solid #dddddd;
+    align-items: center;
+    font-size: 20px;
 }
