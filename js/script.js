@@ -55,6 +55,16 @@
             });
         });
     }
+    const renderButtons = () => {
+        let htmlString = "";
+        if (tasks.length > 0) {
+            htmlString += `
+            <button class="buttons__button">Ukryj ukończone</button>
+            <button class="buttons__button">Ukończ wszystkie</button>
+            `;
+        }
+        document.querySelector(".js-buttons").innerHTML = htmlString;
+    }
 
     const renderTasks = () => {
         let htmlString = "";
@@ -69,9 +79,10 @@
         }
         document.querySelector(".js-taskList").innerHTML = htmlString;
     }
-    
+
     const render = () => {
         renderTasks();
+        renderButtons();
         addEvents();
     }
 
