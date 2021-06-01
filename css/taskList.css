@@ -2,6 +2,7 @@
     list-style: none;
     padding: 25px 10px;
     margin: 0 auto;
+    border-top: 1px solid #dddddd;
 }
 
 .taskList__element {
@@ -27,9 +28,11 @@
     width: 30px;
     height: 30px;
 }
+
 .taskList__button--done {
     background-color: #008000;
 }
+
 .taskList__button--done:hover {
     background-color: #009900;
     cursor: pointer;
