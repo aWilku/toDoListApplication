@@ -1,9 +1,10 @@
 .form {
     display: flex;
     padding: 10px;
+    border-top: 1px solid #dddddd;
 }
 
-@media(max-width: 500px) {
+@media(max-width: 767px) {
     .form {
         flex-direction: column;
     }
@@ -16,7 +17,7 @@
     border: 1px solid #dddddd;
 }
 
-@media(max-width: 500px) {
+@media(max-width: 767px) {
     .form__input {
         margin: 10px 10px 0;
     }
