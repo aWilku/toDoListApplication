@@ -2,7 +2,7 @@
     let tasks = [];
     let hideDoneTask = false;
 
-    const addTaskToTasks = (newTask) => {
+    const addTaskToTasks = newTask => {
         tasks = [
             ...tasks,
             { content: newTask },
@@ -10,7 +10,7 @@
         render();
     };
 
-    const removeTask = (index) => {
+    const removeTask = index => {
         tasks = [
             ...tasks.slice(0, index),
             ...tasks.slice(index + 1)
@@ -18,7 +18,7 @@
         render();
     }
 
-    const toggleTaskDone = (index) => {
+    const toggleTaskDone = index => {
         tasks = [
             ...tasks.slice(0, index),
             {
@@ -78,7 +78,7 @@
         let htmlString = "";
         if (tasks.length > 0) {
             htmlString += `
-            <button class="buttons__button js-toggleDoneAllTask">${hideDoneTask ? "Pokaż ukończone" : "Ukryj ukończone"}</button>
+            <button class="buttons__button js-toggleDoneAllTask" ${tasks.every(({ done }) => !done) ? "disabled" : ""}>${hideDoneTask ? "Pokaż ukończone" : "Ukryj ukończone"}</button>
             <button class="buttons__button  js-doneAllTask" ${tasks.every(({ done }) => done) ? "disabled" : ""}>Ukończ wszystkie</button>
             `;
         }
@@ -107,12 +107,12 @@
         bindButtonsEvent();
     }
 
-    const cleanTaskInput = (newTask) => {
+    const cleanTaskInput = newTask => {
         newTask.value = "";
         newTask.focus();
     }
 
-    const onFormSubmit = (event) => {
+    const onFormSubmit = event => {
         event.preventDefault();
 
         const newTask = document.querySelector(".js-newTask");
