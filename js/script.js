@@ -38,7 +38,7 @@
         render();
     }
 
-    const addEvents = () => {
+    const bindRemoveTaskEvent = () => {
         const removeButtons = document.querySelectorAll(".js-removeTask");
 
         removeButtons.forEach((removeButton, index) => {
@@ -46,7 +46,9 @@
                 removeTask(index);
             });
         });
+    }
 
+    const bindToggleTaskDoneEvent = () => {
         const toggleDoneButtons = document.querySelectorAll(".js-doneTask");
 
         toggleDoneButtons.forEach((doneButton, index) => {
@@ -55,6 +57,7 @@
             });
         });
     }
+
     const renderButtons = () => {
         let htmlString = "";
         if (tasks.length > 0) {
@@ -83,7 +86,8 @@
     const render = () => {
         renderTasks();
         renderButtons();
-        addEvents();
+        bindRemoveTaskEvent();
+        bindToggleTaskDoneEvent();
     }
 
     const cleanTaskInput = (newTask) => {
