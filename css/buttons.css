@@ -2,7 +2,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 25px;
-    margin: 15px
+    margin: 15px;
 }
 
 @media(max-width: 767px) {
@@ -14,6 +14,16 @@
 
 .buttons__button {
     border: none;
-    color: teal;
-    background-color: white;
+    color: hsl(180, 100%, 20%);
+    background-color: transparent;
+    transition: 1s;
+}
+
+.buttons__button:hover {
+    color: hsl(180, 100%, 40%);
+    cursor: pointer;
+}
+
+.buttons__button:active {
+    color: hsl(180, 100%, 50%);
 }

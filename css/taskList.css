@@ -13,9 +13,11 @@
     align-items: center;
     grid-gap: 15px;
 }
+
 .taskList__element--hidden {
     display: none;
 }
+
 .taskList__text {
     word-break: break-all;
 }
@@ -29,6 +31,7 @@
     border: none;
     width: 30px;
     height: 30px;
+    transition: 1s;
 }
 
 .taskList__button--done {
