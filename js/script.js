@@ -1,14 +1,6 @@
 {
-    let tasks = [
-        {
-            content: "zjeść",
-            done: false
-        },
-        {
-            content: "wypic",
-            done: true
-        }
-    ];
+    let tasks = [];
+    let hideDoneTask = false;
 
     const addTaskToTasks = (newTask) => {
         tasks = [
@@ -45,6 +37,10 @@
         }));
         render();
     }
+    const hideAllTaskDone = () => {
+        hideDoneTask = !hideDoneTask;
+        render();
+    }
 
     const bindRemoveTaskEvent = () => {
         const removeButtons = document.querySelectorAll(".js-removeTask");
@@ -66,19 +62,23 @@
         });
     }
 
-    const bindAllTaskDoneEvent = () => {
+    const bindButtonsEvent = () => {
         const toggleAllDoneButtons = document.querySelector(".js-doneAllTask");
-        if (!toggleAllDoneButtons)
-            return;
+        if (toggleAllDoneButtons){
+            toggleAllDoneButtons.addEventListener("click", makeAllTaskDone)
+        }
 
-        toggleAllDoneButtons.addEventListener("click", makeAllTaskDone)
+        const toggleAllHideTaskButton = document.querySelector(".js-toggleDoneAllTask");
+        if (toggleAllHideTaskButton){
+            toggleAllHideTaskButton.addEventListener("click", hideAllTaskDone)
+        }
     }
 
     const renderButtons = () => {
         let htmlString = "";
         if (tasks.length > 0) {
             htmlString += `
-            <button class="buttons__button">Ukryj ukończone</button>
+            <button class="buttons__button js-toggleDoneAllTask">${hideDoneTask ? "Pokaż ukończone" : "Ukryj ukończone"}</button>
             <button class="buttons__button  js-doneAllTask" ${tasks.every(({ done }) => done) ? "disabled" : ""}>Ukończ wszystkie</button>
             `;
         }
@@ -89,7 +89,7 @@
         let htmlString = "";
         for (const task of tasks) {
             htmlString += `
-            <li class="taskList__element">
+            <li class="taskList__element ${(task.done && hideDoneTask) ? "taskList__element--hidden" : ""}">
             <button class="taskList__button taskList__button--done js-doneTask">${task.done ? "&check;" : ""}</button>
             <span class="taskList__text${task.done ? " taskList__text--done" : ""}" >${task.content}</span>
             <button class="taskList__button taskList__button--remove js-removeTask">🗑</button>
@@ -104,7 +104,7 @@
         renderButtons();
         bindRemoveTaskEvent();
         bindToggleTaskDoneEvent();
-        bindAllTaskDoneEvent();
+        bindButtonsEvent();
     }
 
     const cleanTaskInput = (newTask) => {

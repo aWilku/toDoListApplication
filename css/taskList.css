@@ -13,7 +13,9 @@
     align-items: center;
     grid-gap: 15px;
 }
-
+.taskList__element--hidden {
+    display: none;
+}
 .taskList__text {
     word-break: break-all;
 }
