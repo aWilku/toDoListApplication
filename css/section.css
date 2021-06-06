@@ -5,7 +5,7 @@
 
 .section__header {
     display: grid;
-    grid-template-columns: 2fr auto auto;
+    grid-template-columns: 1fr auto;
 }
 
 @media(max-width: 767px) {
